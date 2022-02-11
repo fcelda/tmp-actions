@@ -23,6 +23,6 @@ runs:
       run: |
         "${VENV}/bin/pip" install --no-cache-dir conan
     - id: set-conan-path
-      sell: bash
+      shell: bash
       run: |
         printf "::set-output name=conan::%s\n" "${VENV}/bin/conan"
