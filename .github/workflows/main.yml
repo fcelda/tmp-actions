@@ -5,7 +5,7 @@ jobs:
   Demo:
     runs-on: ubuntu-latest
     steps:
-      - uses: ./.github/actions/install-conan
+#      - uses: ./.github/actions/install-conan
       - run: "${CONAN}" --version
         env:
           CONAN: ${{steps.0.outputs.conan}} 
