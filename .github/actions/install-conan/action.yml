@@ -15,12 +15,12 @@ runs:
     - name: Create Python virtual environment
       shell: bash
       run: |
-        python3 -m venv "${{input.path}}"
+        python3 -m venv "${{inputs.path}}"
     - name: Install Conan
       shell: bash
       run: |
-        "${{input.path}}/bin/pip" install --no-cache-dir conan
+        "${{inputs.path}}/bin/pip" install --no-cache-dir conan
     - id: set-conan-path
       shell: bash
       run: |
-        printf "::set-output name=conan::%s\n" "${{input.path}}/bin/conan"
+        printf "::set-output name=conan::%s\n" "${{inputs.path}}/bin/conan"
