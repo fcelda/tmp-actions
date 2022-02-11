@@ -12,7 +12,8 @@ outputs:
 runs:
   using: composite
   env:
-    VENV: "${{inputs.path}}"
+    foo: bar
+    bar: foo
   steps:
     - name: Create Python virtual environment
       shell: bash
