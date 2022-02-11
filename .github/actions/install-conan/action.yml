@@ -19,4 +19,4 @@ runs:
     - name: Install Conan
       run: "${VENV}/bin/pip" install --no-cache-dir conan
     - id: set-conan-path
-      run: printf "::set-output name=path::%s\n" "${VENV}/bin/conan"
+      run: printf "::set-output name=conan::%s\n" "${VENV}/bin/conan"
