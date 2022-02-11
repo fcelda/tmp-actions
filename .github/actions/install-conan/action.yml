@@ -1,0 +1,22 @@
+name: Install Conan
+description: Install Conan
+inputs:
+  path:
+    description: Conan installation path
+    required: true
+    default: ~/conan
+outputs:
+  conan:
+    description: Path to the conan binary
+    value: ${{steps.set-conan-path.outputs.path}}
+runs:
+  using: composite
+    env:
+      VENV: ${{inputs.path}}
+  steps:
+    - name: Create Python virtual environment
+      run: python3 -m venv "${VENV}"
+    - name: Install Conan
+      run: "${VENV}/bin/pip" install --no-cache-dir conan
+    - id: set-conan-path
+      run: printf "::set-output name=path::%s\n" "${VENV}/bin/conan"
