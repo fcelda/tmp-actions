@@ -11,8 +11,8 @@ outputs:
     value: ${{steps.set-conan-path.outputs.path}}
 runs:
   using: composite
-    env:
-      VENV: ${{inputs.path}}
+  env:
+    VENV: ${{inputs.path}}
   steps:
     - name: Create Python virtual environment
       run: python3 -m venv "${VENV}"
