@@ -7,6 +7,6 @@ jobs:
     steps:
       - uses: .github/actions/install-conan
       - env:
-          CONAN=${{steps.0.outputs.conan}} 
+          CONAN: ${{steps.0.outputs.conan}} 
         run: "${CONAN}" --version
       - run: echo "🐧"
