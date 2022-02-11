@@ -1,0 +1,9 @@
+name: Demo
+on: [push]
+
+jobs:
+  Demo:
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          echo "🐧"
