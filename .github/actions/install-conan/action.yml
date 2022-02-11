@@ -11,16 +11,16 @@ outputs:
     value: ${{steps.set-conan-path.outputs.path}}
 runs:
   using: composite
-  env:
-    foo: bar
-    bar: foo
   steps:
     - name: Create Python virtual environment
       shell: bash
-      run: python3 -m venv "${{input.path}}"
+      run: |
+        python3 -m venv "${{input.path}}"
     - name: Install Conan
       shell: bash
-      run: "${{input.path}}/bin/pip" install --no-cache-dir conan
+      run: |
+        "${{input.path}}/bin/pip" install --no-cache-dir conan
     - id: set-conan-path
       shell: bash
-      run: printf "::set-output name=conan::%s\n" "${{input.path}}/bin/conan"
+      run: |
+        printf "::set-output name=conan::%s\n" "${{input.path}}/bin/conan"
