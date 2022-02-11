@@ -15,8 +15,11 @@ runs:
 #    VENV: ${{inputs.path}}
   steps:
     - name: Create Python virtual environment
+      shell: bash
       run: python3 -m venv "${VENV}"
     - name: Install Conan
+      shell: bash
       run: "${VENV}/bin/pip" install --no-cache-dir conan
     - id: set-conan-path
+      sell: bash
       run: printf "::set-output name=conan::%s\n" "${VENV}/bin/conan"
