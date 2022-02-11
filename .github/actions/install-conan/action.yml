@@ -17,13 +17,10 @@ runs:
   steps:
     - name: Create Python virtual environment
       shell: bash
-      run: |
-        python3 -m venv "${VENV}"
+      run: python3 -m venv "${{input.path}}"
     - name: Install Conan
       shell: bash
-      run: |
-        "${VENV}/bin/pip" install --no-cache-dir conan
+      run: "${{input.path}}/bin/pip" install --no-cache-dir conan
     - id: set-conan-path
       shell: bash
-      run: |
-        printf "::set-output name=conan::%s\n" "${VENV}/bin/conan"
+      run: printf "::set-output name=conan::%s\n" "${{input.path}}/bin/conan"
